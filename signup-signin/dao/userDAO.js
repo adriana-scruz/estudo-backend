@@ -9,12 +9,8 @@ class UserDAO {
   }
 
   findOne() {
-    console.log("finding use data...");
     const sql = `SELECT * FROM users`;
-    this.db.all(sql, (err, data) => {
-      console.log(err);
-      console.log(data);
-    });
+    this.db.all(sql, callback);
   }
 }
 

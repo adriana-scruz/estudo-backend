@@ -9,7 +9,13 @@ exports.signup = (req, res) => {
 
 // SignIn
 exports.signin = (req, res) => {
-  UserDAO.findOne();
+  UserDAO.findOne((err, data) => {
+    if (err) {
+      res.json({ message: err });
+    } else {
+      res.json(data);
+    }
+  });
 };
 
 /*
