@@ -1,5 +1,6 @@
 // DAO (Data Access Object)
-const UserDAO = require("../dao/userDAO");
+const dbConn = require("../infra/dbConn");
+const UserDAO = require("../dao/userDAO")(dbConn);
 
 // SignUp
 exports.signup = (req, res) => {
