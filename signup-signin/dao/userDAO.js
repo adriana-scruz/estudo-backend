@@ -1,14 +1,19 @@
+const crypto = require("crypto");
+
 class UserDAO {
   constructor(dbConn) {
     this.db = dbConn;
   }
 
-  save() {
+  save(data) {
     console.log("saving use data...");
-    this.db.run();
+    const { name, email, password } = data;
+    const salt = crypto.randomBytes(16);
+
+    //this.db.run();
   }
 
-  findOne() {
+  findOne(callback) {
     const sql = `SELECT * FROM users`;
     this.db.all(sql, callback);
   }

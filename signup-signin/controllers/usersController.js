@@ -4,7 +4,7 @@ const UserDAO = require("../dao/userDAO")(dbConn);
 
 // SignUp
 exports.signup = (req, res) => {
-  UserDAO.save();
+  UserDAO.save(req.body);
 };
 
 // SignIn
