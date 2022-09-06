@@ -18,7 +18,21 @@ exports.signup = (req, res) => {
 // SignIn
 exports.signin = (req, res) => {
   UserDAO.findOne(req.body, (err, data, pwdIsValid) => {
-    res.json();
+    if (data && pwdIsValid) {
+      res.status(200).json({ message: "Logged in successfully" });
+    }
+
+    if (data && !pwdIsValid) {
+      res.status(400).json({ message: "User or password is wrong" });
+    }
+
+    if (data === udefined) {
+      res.status(404).json({ message: "User not found" });
+    }
+
+    if (err) {
+      res.status(500).json({ message: "Server unavailable" });
+    }
   });
 };
 
