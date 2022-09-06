@@ -4,17 +4,21 @@ const UserDAO = require("../dao/userDAO")(dbConn);
 
 // SignUp
 exports.signup = (req, res) => {
-  UserDAO.save(req.body);
+  const callback = (err) => {
+    if (err) {
+      res.status(500).json({ message: "Failed to add user" });
+    } else {
+      res.status(201).json({ message: "User added successfully" });
+    }
+  };
+
+  UserDAO.save(req.body, callback);
 };
 
 // SignIn
 exports.signin = (req, res) => {
-  UserDAO.findOne((err, data) => {
-    if (err) {
-      res.json({ message: err });
-    } else {
-      res.json(data);
-    }
+  UserDAO.findOne(req.body, () => {
+    res.json();
   });
 };
 
