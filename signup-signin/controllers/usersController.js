@@ -17,7 +17,7 @@ exports.signup = (req, res) => {
 
 // SignIn
 exports.signin = (req, res) => {
-  UserDAO.findOne(req.body, () => {
+  UserDAO.findOne(req.body, (err, data, pwdIsValid) => {
     res.json();
   });
 };
