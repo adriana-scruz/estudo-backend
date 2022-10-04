@@ -36,10 +36,10 @@ exports.signin = (req, res) => {
   });
 };
 
-/*
-REF ALTERNATIVO
-module.exports = {
-  signup: (req,res) => {},
-  signin: (req, res) => {},
-};
-*/
+//
+// REF ALTERNATIVO
+// module.exports = {
+//   signup: (req,res) => {},
+//   signin: (req, res) => {},
+// };
+//
